@@ -3,7 +3,7 @@ using PersonRest.Model;
 
 namespace PersonRest.Services
 {
-    public interface IPersonServicecs
+    public interface IPersonService
     {
         Person Create(Person person); 
         Person FindBydID(long id);
