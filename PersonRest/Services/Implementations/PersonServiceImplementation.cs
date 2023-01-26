@@ -2,7 +2,7 @@
 
 namespace PersonRest.Services.Implementations
 {
-    public class PersonServiceImplementationcs : IPersonService
+    public class PersonServiceImplementation : IPersonService
     {
         public Person Create(Person person)
         {
