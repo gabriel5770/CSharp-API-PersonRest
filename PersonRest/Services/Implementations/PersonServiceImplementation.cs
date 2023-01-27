@@ -16,12 +16,32 @@ namespace PersonRest.Services.Implementations
 
         public List<Person> FindAll()
         {
-            throw new NotImplementedException();
+            List<Person> list = new List<Person>();
+            for(int i = 0; i< 1; i++ )
+            {
+                list.Add(new Person()
+                {
+                    Id = 1,
+                    FirstName = "Gabriel",
+                    LastName = "Dos Santos Vieira",
+                    Gender = "Masculino",
+                    Address = "Polvilho-cajamar"
+                });
+            }
+            return list;
         }
 
         public Person FindBydID(long id)
         {
-            throw new NotImplementedException();
+            return new Person
+            {
+                Id=1,
+                FirstName = "Gabriel",
+                LastName = "Dos Santos Vieira",
+                Gender = "Masculino",
+                Address = "Polvilho-cajamar"
+                
+            };
         }
 
         public Person Update(Person person)

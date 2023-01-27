@@ -5,7 +5,7 @@ using PersonRest.Services;
 namespace PersonRest.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PersonController : ControllerBase
     {
         private readonly ILogger<PersonController> _logger;
@@ -46,7 +46,7 @@ namespace PersonRest.Controllers
             return Ok(_personService.Update(person));
         }
 
-        [HttpGet("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
             _personService.Delete(id);
