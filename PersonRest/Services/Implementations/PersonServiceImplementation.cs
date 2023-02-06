@@ -1,9 +1,16 @@
 ﻿using PersonRest.Model;
+using PersonRest.Model.Context;
 
 namespace PersonRest.Services.Implementations
 {
     public class PersonServiceImplementation : IPersonService
     {
+        private MySQLContext _context;
+
+        public PersonServiceImplementation(MySQLContext context)
+        {
+            _context = context;
+        }
         public Person Create(Person person)
         {
             throw new NotImplementedException();
@@ -16,31 +23,20 @@ namespace PersonRest.Services.Implementations
 
         public List<Person> FindAll()
         {
-            List<Person> list = new List<Person>();
-            for(int i = 0; i< 1; i++ )
-            {
-                list.Add(new Person()
-                {
-                    Id = 1,
-                    FirstName = "Gabriel",
-                    LastName = "Dos Santos Vieira",
-                    Gender = "Masculino",
-                    Address = "Polvilho-cajamar"
-                });
-            }
-            return list;
+            
+            return _context.persons.ToList();
         }
 
         public Person FindBydID(long id)
         {
             return new Person
             {
-                Id=1,
+                Id = 1,
                 FirstName = "Gabriel",
                 LastName = "Dos Santos Vieira",
                 Gender = "Masculino",
                 Address = "Polvilho-cajamar"
-                
+
             };
         }
 
