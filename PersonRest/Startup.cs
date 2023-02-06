@@ -1,4 +1,6 @@
-﻿using PersonRest.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonRest.Model.Context;
+using PersonRest.Services;
 using PersonRest.Services.Implementations;
 
 namespace PersonRest
@@ -13,14 +15,17 @@ namespace PersonRest
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+
 
             services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+          
+             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            //Adiciona a Interface e a implementação
+            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, new MySqlServerVersion(new Version(7, 0, 0))));
             //Injeção de dependência
             services.AddScoped<IPersonService, PersonServiceImplementation>();
 
